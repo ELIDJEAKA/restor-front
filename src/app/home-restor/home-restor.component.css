@@ -1,0 +1,22 @@
+.zone_img{
+    padding-top: 25px;
+    text-align: center;
+}
+.zone_img img{
+    height: 450px;
+}
+.zone_welcome{
+    padding-top:25px;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: #F44336;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.zone_menu{
+    padding-top:25px; 
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}

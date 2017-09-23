@@ -1,0 +1,26 @@
+<div id="loginbox">
+    <div class="title">
+        Nos differents services  
+    </div> 
+    <div class="choix">Vous pouvez faire le choix de service !</div>
+    <div class="service" *ngFor="let service of services">
+        <div *ngIf="service.name == 'plats'" class="icon" style="float:left;">       
+            <a routerLink='/service-client' style="font-weight:bold;">
+                <img src="../../assets/img/plat.png">
+                <div class="color-class-name" style="font-weight: bold;font-size:16px;padding-top:15px;">{{ service.name | uppercase }}</div>   
+            </a> 
+        </div>
+        <div *ngIf="service.name == 'boissons'" class="icon" style="float:right;">       
+            <a routerLink='/service-client' style="font-weight:bold;">
+                <img src="../../assets/img/boisson.png" >
+                <div class="color-class-name" style="font-weight: bold;font-size:16px;padding-top:15px;">{{ service.name | uppercase }}</div>   
+            </a> 
+        </div>
+        <div *ngIf="service.name != 'plats' && service.name != 'boissons'" class="icon">       
+            <a routerLink='/service-client' style="font-weight:bold;">
+                <img src="../../assets/img/service.png">
+                <div class="color-class-name" style="font-weight: bold;font-size:16px;padding-top:15px;">{{ service.name | uppercase }}</div>   
+            </a> 
+        </div>
+    </div>
+</div>

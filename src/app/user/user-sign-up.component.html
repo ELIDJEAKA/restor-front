@@ -1,0 +1,71 @@
+<div id="loginbox">
+            <form id="loginform" class="form-vertical" action="index.html">
+				 <div class="control-group normal_text"> <h3><img src="../assets/img/logo.png" alt="Logo" /></h3></div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lg"><i class="icon-user"> </i></span><input type="text" placeholder="Nom et prenom" name="users.name" [(ngModel)]="users.name"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                  <div class="controls">
+                      <div class="main_input_box">
+                          <span class="add-on bg_lg"><i class="icon-envelope-alt"> </i></span><input type="text" placeholder="Email" name="users.email" [(ngModel)]="users.email"/>
+                      </div>
+                  </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ly"><i class="icon-user-md"></i></span><select class="form-control" name="users.identite" [(ngModel)]="users.identite">
+                                <option value="">selectionner votre poste</option>
+                                <option value="gerant">GERANT</option>
+                                <option value="proprietaire">PROPRIETAIRE</option>
+                                <option value="comptable">COMPTABLE</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lg"><i class="icon-github"> </i></span><input type="text" placeholder="pseudo" name="users.username" [(ngModel)]="users.username" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Mot de passe" name="users.password" [(ngModel)]="users.password"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span><input type="password" placeholder="Retapez le Mot de passe" />
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link btn btn-info" id="to-recover">Mot de passe ?</a></span>
+                    <span class="pull-right"><a type="button" class="btn btn-success" (click)="userPOST(users)">S'enregistrer</a></span>
+                </div>
+            </form>
+            <form id="recoverform" action="#" class="form-vertical">
+				<p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
+
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lo"><i class="icon-envelope"></i></span><input type="text" placeholder="E-mail address" />
+                        </div>
+                    </div>
+
+                <div class="form-actions">
+                    <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
+                    <span class="pull-right"><a class="btn btn-info">Reecover</a></span>
+                </div>
+            </form>
+        </div>

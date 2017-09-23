@@ -1,0 +1,111 @@
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Dashboard</a> <a href="#" class="current">Produit</a> </div>
+    <h1 style="text-align:center;background-color:#F44336;color:#FFF;padding:10px;font-size:30px;font-weight:bold;">GESTION DES DIFFERENTS PRODUITS</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>LISTE DES PRODUITS</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th style="font-size:17px;background-color:#28b779;">ID</th>
+                  <th style="font-size:17px;background-color:#28b779;">IMAGE</th>
+                  <th style="font-size:17px;background-color:#28b779;">PRODUIT</th>
+                  <th style="font-size:17px;background-color:#28b779;">PRIX D'ACHAT (FCFA)</th>
+                  <th style="font-size:17px;background-color:#28b779;">PRIX DE VENTE (FCFA)</th>
+                   <th style="font-size:17px;background-color:#28b779;">CATEGORIE</th>
+                  <th style="font-size:17px;background-color:#28b779;">ACTION(S)</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let product of products">
+                <tr class="odd gradeX">
+                  <td style="font-size:17px;text-align:center;">{{ product.id }}</td>
+                  <td style="font-size:17px;text-align:center;">image</td>
+                  <td style="font-size:17px;text-align:center;">{{ product.name | uppercase }}</td>
+                   <td style="font-size:17px;text-align:center;">{{ product.prixAchat }}</td>
+                   <td style="font-size:17px;text-align:center;">{{ product.prixVente }}</td>
+                   <td style="font-size:17px;text-align:center;">{{ product.category.name | uppercase }}</td>
+                  <td style="font-size:17px;text-align:center;">
+                    <button class="btn btn-warning">Modifier</button>
+                    <button class="btn btn-danger" (click)="productDELETE(product.id)">Supprimer</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+          <h5>Ajout d'une nouveau produit</h5>
+        </div>
+        <div class="widget-content nopadding">
+          <form class="form-horizontal" [formGroup]="ProductForm" id="ProductForm" (ngSubmit)="productPOST(ProductForm.value)">
+            <div class="control-group">
+              <label class="control-label" for="name">Produit :</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="Entrez le nom des produits (salade,pizza ... )" for="name" formControlName="name"/>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="prixAchat">Prix d'achat (FCFA):</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="Entrez le nom des categories ( sucrerie,liqueur,resistance ... )" for="prixAchat" formControlName="prixAchat" />
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="prixVente">Prix de vente (FCFA):</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="Entrez le nom des categories ( sucrerie,liqueur,resistance ... )" for="prixVente" formControlName="prixVente"/>
+              </div>
+            </div> 
+            <div class="control-group">
+              <label class="control-label" for="category">Categorie</label>
+              <div class="controls">
+                <select for="category"  *ngIf="categories != undefined" class="span11" formControlName="category">
+                    <option value="">-- Please select --</option>
+                      <option *ngFor="let category of categories" value="{{category.id}}">{{ category.name | uppercase }}</option>             
+                    </select>
+              </div>
+            </div> 
+            <div class="control-group">
+              <label class="control-label" for="image">Image</label>
+              <div class="controls">
+                <input type="file" class="span11" formControlName="image" #image/>
+              </div>
+            </div>         
+            <div class="control-group">
+                <label class="control-label" for="name">Description</label>
+                <div class="controls">
+                  <textarea class="span11" rows="6" placeholder="Enter text ..." formControlName="description"></textarea>
+                </div>                
+            </div> 
+            <div class="form-actions">
+              <button type="submit" class="btn btn-success">ENREGISTRER</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="../assets/js/bootstrap-colorpicker.js"></script> 
+<script src="../assets/js/bootstrap-datepicker.js"></script> 
+<script src="../assets/js/jquery.toggle.buttons.js"></script> 
+<script src="../assets/js/masked.js"></script>  
+<script src="../assets/js/matrix.form_common.js"></script> 
+<script src="../assets/js/wysihtml5-0.3.0.js"></script> 
+<script src="../assets/js/jquery.peity.min.js"></script> 
+<script src="../assets/js/bootstrap-wysihtml5.js"></script> 
+<script>
+	$('.textarea_editor').wysihtml5();
+</script>

@@ -1,0 +1,35 @@
+.title{
+    margin-top:65px;
+    font-size:30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: #F44336;
+    margin-bottom:80px;
+    line-height:35px;
+}
+.service{
+    width: auto;
+    display:inline;
+    text-align:center;
+    padding:auto;
+}
+.service a{
+    color:#FFF;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.service img{
+    padding:3%;
+    width:140px;
+    height:140px;
+}
+.choix{
+    margin-bottom:10px;
+    margin-top:3px;
+    text-align:center;
+    color:#FFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    font-size:16px;
+    padding-top:15px;
+}

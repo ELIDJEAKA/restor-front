@@ -1,0 +1,70 @@
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a href="#" class="current">Tables</a> </div>
+    <h1 style="text-align:center;background-color:#F44336;color:#FFF;padding:10px;font-size:30px;font-weight:bold;">GESTION DES DIFFERENTES TABLES</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>LISTE DES TABLES</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th style="font-size:17px;background-color:#28b779;">ID</th>
+                  <th style="font-size:17px;background-color:#28b779;">TABLES</th>
+                  <th style="font-size:17px;background-color:#28b779;">ETAT</th>
+                  <th style="font-size:17px;background-color:#28b779;">ACTION(S)</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let table of tables">
+                <tr class="odd gradeX">
+                  <td style="font-size:17px;text-align:center;">{{ table.id }}</td>
+                  <td style="font-size:17px;text-align:center;">TABLE {{table.name}}</td>
+                    <td style="font-size:17px;text-align:center;">{{table.state | uppercase }}</td>
+                  <td style="font-size:17px;text-align:center;">
+                    <button class="btn btn-warning">Modifier</button>
+                    <button class="btn btn-danger" (click)="tableDELETE(table.id)">Supprimer</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+       <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+          <h5>Ajout d'une nouvelle table</h5>
+        </div>
+        <div class="widget-content nopadding">
+          <form class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label" for="name">Table :</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="Entrez le nom des tables ( 1,2 ... )" for="name" name="tables.name" [(ngModel)]="tables.name"/>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="etat">Etat</label>
+              <div class="controls">
+                <select for="etat" name="tables.state" [(ngModel)]="tables.state" class="span11" >
+                    <option value="libre">-- Selectionner un choix --</option>
+                    <option value="libre" selected>LIBRE</option>
+                    <option value="occupee">OCCUPEE</option>
+                    <option value="reservee">RESERVEE</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-success" (click)="tablePOST(tables.name,tables.state)">ENREGISTRER</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

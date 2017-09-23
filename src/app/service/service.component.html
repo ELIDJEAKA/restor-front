@@ -1,0 +1,57 @@
+<div id="content">
+  <div id="content-header">
+    <div id="breadcrumb"> <a href="#" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Dashboard</a> <a href="#" class="current">Service</a> </div>
+    <h1 style="text-align:center;background-color:#F44336;color:#FFF;padding:10px;font-size:30px;font-weight:bold;">GESTION DES DIFFERENTS SERVICES</h1>
+  </div>
+  <div class="container-fluid">
+    <hr>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-th"></i> </span>
+            <h5>LISTE DES SERVICES</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th style="font-size:17px;background-color:#28b779;">ID</th>
+                  <th style="font-size:17px;background-color:#28b779;">SERVICES</th>
+                  <th style="font-size:17px;background-color:#28b779;">ACTION(S)</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let service of services">
+                <tr class="odd gradeX">
+                  <td style="font-size:17px;text-align:center;">{{ service.id }}</td>
+                  <td style="font-size:17px;text-align:center;">{{service.name | uppercase }}</td>
+                  <td style="font-size:17px;text-align:center;">
+                    <button class="btn btn-warning">Modifier</button>
+                    <button class="btn btn-danger" (click)="serviceDELETE(service.id)">Supprimer</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="widget-box">
+        <div class="widget-title"> <span class="icon"> <i class="icon-align-justify"></i> </span>
+          <h5>Ajout d'un nouveau service</h5>
+        </div>
+        <div class="widget-content nopadding">
+          <form class="form-horizontal">
+            <div class="control-group">
+              <label class="control-label" for="name">Service :</label>
+              <div class="controls">
+                <input type="text" class="span11" placeholder="Entrez le nom des services ( plats,boissons ... )" for="name" name="services.name" [(ngModel)]="services.name"/>
+              </div>
+            </div>         
+            <div class="form-actions">
+              <button type="button" class="btn btn-success" (click)="servicePOST(services.name)">ENREGISTRER</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
