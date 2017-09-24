@@ -8,7 +8,8 @@ export class UrlServer{
     url : any
 
     getUrl(){
-        return this.url = "http://localhost:1337/";
+        //return this.url = "http://localhost:1337/";
+        return this.url = "https://restor-back.herokuapp.com/"
     }
 
     goBack(): void {

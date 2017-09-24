@@ -56,7 +56,7 @@ export class ProductComponent implements OnInit {
         this.ProductImageFile = Image.files[0]
       }
       const ImageFile: File =  this.ProductImageFile;
-      //console.log(ImageFile) 
+      console.log(ImageFile) 
       
       const formData: FormData = new FormData();
       formData.append('name',value.name);
@@ -70,6 +70,7 @@ export class ProductComponent implements OnInit {
       .subscribe(res => {
         this.products = "";
         //this.products = res;
+        console.log(res);
         this.productGET();
       });
     }
